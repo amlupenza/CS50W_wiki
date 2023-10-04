@@ -1,9 +1,10 @@
+
 {% extends "encyclopedia/layout.html" %}
 {% block title %}
     Create new Page
 {% endblock %}
-{% block body %}
-<div class="container">
+{% block main %}
+<div class="container-fluid">
 <form class="mb-3" action="{% url 'encyclopedia:create' %}" method="post">
     {% csrf_token %}
     <div class="mb-3">
@@ -14,7 +15,7 @@
     <label for="content" class="form-label">Content</label>
     <textarea class="form-control" id="content" rows="3" name="content"></textarea>
     </div>
-    <input type="submit" class="btn">
+    <input type="submit" class="btn btn-primary">
   </form>
 </div>
 

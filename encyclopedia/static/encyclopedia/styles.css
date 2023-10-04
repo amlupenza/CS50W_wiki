@@ -11,6 +11,10 @@ h1 {
     margin-top: 0px;
     padding-top: 20px;
 }
+.edit{
+    margin-top: 4px;
+    background-color: rgb(124, 9, 9);
+}
 
 textarea {
     height: 90vh;

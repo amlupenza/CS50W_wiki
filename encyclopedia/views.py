@@ -4,6 +4,9 @@ from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from . import util
 import difflib
+import random
+
+
 #Index function
 def index(request):
     return render(request, "encyclopedia/index.html", {
@@ -72,3 +75,29 @@ def create_page(request):
         util.save_entry(title, content)
         return HttpResponseRedirect(reverse("encyclopedia:entry_page", args=[title]))
     return render(request, "encyclopedia/create_page.html")
+
+# edit page function
+def edit_page(request,title):
+    # for POST method
+    if request.method == "POST":
+        content_new = request.POST.get("content")
+        util.save_entry(title,content_new)
+        return HttpResponseRedirect(reverse("encyclopedia:entry_page", args=[title]))
+    
+    # for GET method, get url
+    title_path = request.get_full_path()
+    # debug with print
+    print(f"This is my path:{title_path}")
+    # get content of the md file
+    content = util.get_entry(title)
+    # render a text area with contents of the md file
+    return render(request, "encyclopedia/edit.html", {
+        "content_md": content, "title": title
+    })
+
+# random page functionality
+def random_page(request):
+    entries = util.list_entries()
+    entry = random.choice(entries)
+    print(entry)
+    return HttpResponseRedirect(reverse("encyclopedia:entry_page", args=[entry]))

@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -9,27 +8,26 @@
         <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
     </head>
     <body>
-        <div class="row">
-            <div class="sidebar col-lg-2 col-md-3">
-                <h2>Wiki</h2>
-                <form action="{% url 'encyclopedia:search' %}" method="post">
+        <div class="navbar navbar-expand-lg bg-primary nav-fill">
+            <div class="nav nav-pills">
+                <h2 class="navbar-brand">Wiki</h2>
+                <div class="nav-item">
+                    <a href="{% url 'encyclopedia:index' %}" class="btn btn-primary nav-link">Home</a>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="{% url 'encyclopedia:create' %}" class="btn-primary nav-link">Create New Page</a>
+                </div>
+                <div class="nav-item">
+                    <a href="{% url 'encyclopedia:random' %}" class="btn-primary nav-link">Random Page</a>
+                </div>
+                <form action="{% url 'encyclopedia:search' %}" method="post" class="d-flex nav-item" role="search">
                     {% csrf_token %}
-                    <input class="search" type="text" name="q" placeholder="Search Encyclopedia">
+                    <input class="form-control me-2" type="text" name="q" placeholder="Search Encyclopedia">
                 </form>
-                <div>
-                    <a href="{% url 'encyclopedia:index' %}">Home</a>
-                </div>
-                <div>
-                    <a href="{% url 'encyclopedia:create' %}" class="btn">Create New Page</a>
-                </div>
-                <div>
-                    Random Page
-                </div>
-                {% block nav %}
-                {% endblock %}
             </div>       
         </div>
-        {% block body %}
+        {% block main %}
         {% endblock %}
     </body>
 </html>
