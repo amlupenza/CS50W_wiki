@@ -1,0 +1,12 @@
+{% extends "encyclopedia/layout.html"}
+{% block title %}
+    Edit Page
+{% endblock %}
+{% block body %}
+<form action="{url 'encyclopedia:edit'}" method="post">
+    <div class="mb-3">
+        <label for="content" class="form-label">Example textarea</label>
+        <textarea class="form-control" id="content" rows="3" name="content">{{content_md}}</textarea>
+    </div>
+</form>
+{% endblock %}
