@@ -11,9 +11,13 @@ h1 {
     margin-top: 0px;
     padding-top: 20px;
 }
-.edit{
-    margin-top: 4px;
-    background-color: rgb(124, 9, 9);
+.btn{
+    margin: 4px;
+    color: white;
+}
+img{
+    width:100px;
+    height:100px
 }
 
 textarea {
@@ -23,6 +27,9 @@ textarea {
 
 .main {
     padding: 10px;
+}
+.container-fluid{
+    margin-top: 10px;
 }
 
 .search {

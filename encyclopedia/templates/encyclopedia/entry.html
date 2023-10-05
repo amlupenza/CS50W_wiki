@@ -5,7 +5,7 @@
 {% endblock %}
 {% block main %}
 <div class="container-fluid">
-<a href="{%url 'encyclopedia:edit' title=title %}" class="btn edit">Edit</a>
     {{html|safe}}
+    <a href="{%url 'encyclopedia:edit' title=title %}" class="btn bg-primary">Edit</a>
 </div>
 {% endblock %}

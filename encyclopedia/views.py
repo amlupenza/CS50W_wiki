@@ -46,7 +46,14 @@ def search(request):
         # create a new list with it's content in lowercase      
         entries = [entry.lower() for entry in entries]
         # find the closes match from the user input
+        
         matches = difflib.get_close_matches(us_input.lower(), entries, cutoff=0.02)
+        if not matches:
+            return render(request, "encyclopedia/error.html", {
+                "error": "Sorry, no entry matches your search"
+            })
+        
+        
         print(f"these are matches:{matches} and this is input: {us_input}")
         return render(request, "encyclopedia/index.html", {
             "entries": matches

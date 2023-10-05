@@ -12,7 +12,7 @@
             <div class="nav nav-pills">
                 <h2 class="navbar-brand">Wiki</h2>
                 <div class="nav-item">
-                    <a href="{% url 'encyclopedia:index' %}" class="btn btn-primary nav-link">Home</a>
+                    <a href="{% url 'encyclopedia:index' %}" class="btn-primary nav-link">Home</a>
                 </div>
                 
                 <div class="nav-item">
@@ -23,7 +23,7 @@
                 </div>
                 <form action="{% url 'encyclopedia:search' %}" method="post" class="d-flex nav-item" role="search">
                     {% csrf_token %}
-                    <input class="form-control me-2" type="text" name="q" placeholder="Search Encyclopedia">
+                    <input class="form-control me-2" type="search" name="q" placeholder="Search Encyclopedia">
                 </form>
             </div>       
         </div>
